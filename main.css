@@ -1,19 +1,68 @@
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    background-color: #ebeff5;
+}
+
+h1 {
+    font-size: 7rem;
+    text-shadow: 2px 2px 1px black;
+    font-weight: lighter;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: lighter;
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+h4 {
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 header {
     position: fixed;
-    box-shadow: 2px 2px 5px;
-    background-color: cadetblue;
+    box-shadow: 0px 4px 8px #222426;
+    background-color: #404d66;
+    top: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 150px;
-    font-size: 45px;
+    height: 10rem;
     color: white;
+    z-index: 10;
+}
+
+.heading {
+    margin-top: 2rem;
+    background-color: #586a8c;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 2px 2px 5px black;
+}
+
+.space { /* Make space for 'position:fixed' header. */
+    position: relative;
+    width: 100%;
+    top: 0;
+    height: 8rem;
 }
 
 #content {
@@ -31,30 +80,165 @@ header {
     align-items: center;
     width: 100%;
     height: 600px;
-    margin-bottom: 20px;
     box-shadow: 3px 3px 8px;
+    overflow: hidden;
+    background-color: #fafcff;
+    margin-bottom: 2rem;
 }
 
 #content > div > div {
+    width: 100%;
+    height: 5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: #8193b3;
+    color: white;
+    z-index: 2;
+}
+
+#content > div > a > img {
+    z-index: 1;
+}
+
+#content > div:nth-child(1) > a > img {
+    transform: translate(0%, 25%);
+}
+
+#content > div:nth-child(2) > a > img {
     width: 100%;
-    height: 125px;
+    transform: translate(0%, 10%);
+}
+
+#content > div:nth-child(3) > a > img {
+    width: 100rem;
+    transform: translate(0%, 30%);
+}
+
+#about {
+    margin: 20px;
+    text-align: justify;
+}
+
+#about > h3 {
+    padding: 10px;
     background-color: burlywood;
-    font-size: 35px;
 }
 
-#content > div:nth-child(1) {
-    margin-top: 150px; /* Make space for 'position:fixed' header. */
-    background-image: url("kitty_cat.jpg");
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 40px;
+    margin: 20px;
 }
 
-#content > div:nth-child(2) {
-    background-image: url("kitty_cat.jpg");
+footer > nav > svg:nth-child(1) { /* Shit's not aligned. So we gotta do some fine-tuning. */
+    height: 120px;
 }
 
-#content > div:nth-child(3) {
-    background-image: url("kitty_cat.jpg");
+footer > nav > svg:nth-child(2) {
+    height: 140px;
+    transform: translate(0, 10px);
+}
+
+footer > nav > svg:nth-child(3) {
+    height: 130px;
+    transform: translate(0, 5px);
+}
+
+footer > nav > svg:nth-child(4) {
+    height: 133px;
+    transform: translate(7px, 5px);
+}
+
+
+
+/* Screen size shenanigans */
+
+/* On screens that are 1000px or higher. */
+@media screen and (min-width: 1000px) {
+    header {
+        height: 4rem;
+    }
+    #content {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #content > div {
+        width: 30%;
+        margin: 10px;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+    h3 {
+        font-size: 2rem;
+    }
+    h4 {
+        font-size: 1.5rem;
+    }
+    nav {
+        font-size: 1.5rem;
+    }
+    .space {
+        height: 3rem;
+    }
+    .heading {
+        margin-top: 1rem;
+        height: 4rem;
+    }
+    footer > nav > svg:nth-child(1) { /* Shit's not aligned. So we gotta do some fine-tuning. */
+        height: 3.5rem;
+    }
+
+    footer > nav > svg:nth-child(2) {
+        height: 4.1rem;
+        transform: translate(0, 5px);
+    }
+
+    footer > nav > svg:nth-child(3) {
+        height: 3.9rem;
+        transform: translate(0, 4px);
+    }
+
+    footer > nav > svg:nth-child(4) {
+        height: 133px;
+        transform: translate(7px, 5px);
+    }
+    #about {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        align-content: center;
+    }
+    #about > div {
+        width: 500px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    #content > div:nth-child(2) > a > img {
+        width: 100%;
+        transform: translate(0%, 10%);
+    }
+
+    /* Transition stuff */
+    #content > div > a > img {
+        transition: transform 0.5s;
+    }
+    #content > div:nth-child(1) > a > img:hover {
+        transform: scale(1.1) translate(0, 20%);
+    }
+    #content > div:nth-child(2) > a > img:hover {
+        transform: scale(1.1) translate(0, 10%);
+    }
+    #content > div:nth-child(3) > a > img:hover {
+        transform: scale(1.1) translate(0, 30%);
+    }
 }
